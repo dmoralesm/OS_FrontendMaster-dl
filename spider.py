@@ -209,7 +209,7 @@ def download_courses(courses_array):
     for i0, course in enumerate(courses_array):
         title = course['title']
         # Create course directory
-        course_path = './Download/{0}-{1}'.format(i0, title)
+        course_path = './Download/{0}-{1}'.format(i0+1, title)
         create_path(course_path)
 
         for i1, section in enumerate(course['sections']):
@@ -220,11 +220,10 @@ def download_courses(courses_array):
                 print("Downloading: {0}".format(
                     format_filename(subsection_title)))
 
-                filename = str(i1) + '-' + str(i2) + format_filename(
-                    section_title) + '|' + format_filename(
+                filename = str(i1+1) + '-' + str(i2+1) + '_' + format_filename(
+                    section_title) + '_' + format_filename(
                         subsection_title) + '.mp4'
 
                 file_path = course_path + '/' + format_filename(filename)
 
                 download_file(subsection['downloadable_url'], file_path)
-
