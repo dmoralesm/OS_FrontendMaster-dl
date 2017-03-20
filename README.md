@@ -1,16 +1,12 @@
 # Front-end Master Video Downloader
 
-The default behavior of the script is to fetch and download **all** available courses. It is a time consuming process (about 30 minutes) since it use GUI browser to do the crawling. 
+The default behavior of the script is to fetch and download **all** available courses. It is a time consuming process (about 30 minutes) since it use GUI browser to do the crawling.
 
-You can optionally download the individual course you want after you have the `DATA_COURSEDETAILED_LIST_CDN.json` file.
-
-NOTE: 
+NOTE:
 
 This assumes you have got a Frontend Master account with subscription
 
 Please do NOT spread the downloadable links to others. Please keep you subscription to continue supporting [FrontendMaster](https://frontendmasters.com/) and getting updates from them.
-
-**`DATA_COURSE_DETAILED_LIST.json` and `DATA_COURSE_LIST.json` is NOT updated. You can delete them before running the script to get the lastest course & video list**
 
 ## Usage
 
@@ -21,7 +17,7 @@ Please do NOT spread the downloadable links to others. Please keep you subscript
 
 ```python
 # Step 0: Install Google Chromedriver
-# The latest version can be found at 
+# The latest version can be found at
 # https://sites.google.com/a/chromium.org/chromedriver/downloads
 
 # Step 1: Install dependencies
@@ -30,10 +26,17 @@ pip install -r requirements.txt
 # Step 2: Edit account info. in config.sample.py
 # Step 3: Rename config.sample.py -> config.py
 
-# Step 4: Run script
+# Step 4 (OPTIONAL): Create courses list
+# The --courses-list-only option gives you the opportunity to decide
+# what courses you want to download in the next step.
+# After it runs, just open the DATA_COURSE_LIST.json file
+# and remove those you don't want
+python run.py --courses-list-only
+
+# Step 5: Download the courses!
 python run.py
 
-# Step 5: Happy hacking!
+# Step 6: Happy hacking!
 # Find all the courses videos inside `Download` folder inside project directory
 ```
 
