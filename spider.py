@@ -48,7 +48,7 @@ def _get_course_list():
 
         if link is not None:
             title = link.getText()
-            course = {'title': title, 'url': link['href']}
+            course = {'title': title, 'url': clean_url(link['href'])}
             course_links.append(course)
 
     return course_links
@@ -228,3 +228,6 @@ def download_courses(courses_array):
                 file_path = course_path + '/' + format_filename(filename)
 
                 download_file(subsection['downloadable_url'], file_path)
+
+def clean_url(url):
+    return url.split('?')[0]
