@@ -183,7 +183,8 @@ def retrive_downloadable_links():
 
 # Func(PASSED): Helpers
 def download_file(url, path):
-    if not os.path.isfile(path):
+    #print 'Size: {0}'.format()
+    if not os.path.isfile(path) or os.path.getsize(path) == 0:
         buff = urlopen(url)
         print("Downloading: %s" % (path))
 
