@@ -1,5 +1,15 @@
 from spider import *
+from args import *
+import sys
 
+exit_after_create_list = False
+if arguments.courses_list_only:
+    try:
+        exit_after_create_list = True
+        os.remove(DATA_COURSE_LIST)
+        os.remove(DATA_COURSE_DETAILED_LIST_CDN)
+    except OSError:
+        pass
 
 # APP: Spider Logic
 # -----------------
@@ -8,8 +18,12 @@ browser_login()
 # Fetch and save all courses
 course_list = []
 if not os.path.isfile(DATA_COURSE_LIST):
+    print "Creating {0}".format(DATA_COURSE_LIST)
     save_course_list()
 course_list = retrive_course_list()
+
+if exit_after_create_list:
+    sys.exit(0)
 
 time.sleep(5)
 
