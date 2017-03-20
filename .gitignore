@@ -72,3 +72,5 @@ build/
 .rvmrc
 geckodriver.log
 DATA_COURSE_DETAILED_LIST_CDN.json
+DATA_COURSE_LIST.json
+./Download
