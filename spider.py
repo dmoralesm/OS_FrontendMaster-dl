@@ -55,7 +55,7 @@ def _get_course_list():
 
 def save_course_list():
     with open(DATA_COURSE_LIST, 'w') as file:
-        file.write(json.dumps(_get_course_list()))
+        file.write(json.dumps(_get_course_list(), indent=2))
 
 def retrive_course_list():
     with open(DATA_COURSE_LIST, 'r') as file:
@@ -138,7 +138,8 @@ def _get_detailed_course_list(course_list):
 
 def save_course_detailed_list(course_list):
     with open(DATA_COURSE_DETAILED_LIST_CDN, 'w') as file:
-        file.write(json.dumps(_get_detailed_course_list(course_list)))
+        print "Creating {0}".format(DATA_COURSE_DETAILED_LIST_CDN)
+        file.write(json.dumps(_get_detailed_course_list(course_list), indent=2))
 
 def retrive_course_detailed_list():
     with open(DATA_COURSE_DETAILED_LIST_CDN, 'r') as file:
@@ -154,7 +155,7 @@ def _get_video_source():
 
 def _write_downloadable_data(courses_data):
     with open(DATA_COURSE_DETAILED_LIST_CDN, 'w') as file:
-        file.write(json.dumps(courses_data))
+        file.write(json.dumps(courses_data, indent=2))
 def save_downloadable_links(courses_data):
     for course in courses_data:
         url = course['url']
